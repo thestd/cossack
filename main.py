@@ -22,17 +22,20 @@ dispatcher.add_handler(about_os_hand)
 
 
 # ********* NGINX DISPATCH *********
-restart_nginx_hand = RegexHandler('restart NGINX', nx.restart_nginx)
+restart_nginx_hand = RegexHandler('restart/start nginx', nx.restart_nginx)
 dispatcher.add_handler(restart_nginx_hand)
 
-start_nginx_hand = RegexHandler('start NGINX', nx.start_nginx)
+start_nginx_hand = RegexHandler('start nginx', nx.start_nginx)
 dispatcher.add_handler(start_nginx_hand)
 
-stop_nginx_hand = RegexHandler('stop NGINX', nx.stop_nginx)
+stop_nginx_hand = RegexHandler('stop nginx', nx.stop_nginx)
 dispatcher.add_handler(stop_nginx_hand)
 
-status_nginx_hand = RegexHandler('status NGINX', nx.status_nginx)
+status_nginx_hand = RegexHandler('status nginx', nx.status_nginx)
 dispatcher.add_handler(status_nginx_hand)
+
+enabled_hosts_hand = RegexHandler('enabled hosts', nx.enabled_hosts)
+dispatcher.add_handler(enabled_hosts_hand)
 
 home_hand = RegexHandler('Back to home', home.home_menu)
 dispatcher.add_handler(home_hand)

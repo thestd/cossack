@@ -5,7 +5,7 @@ from OS_manager.nginx import Nginx
 class BotManagerNginx:
     def __init__(self):
         self.nx = Nginx()
-        self.custom_keyboard = [['start NGINX', 'restart NGINX'], ['stop NGINX', 'status NGINX'], ['Back to home']]
+        self.custom_keyboard = [['restart/start nginx', 'stop nginx',], ['status nginx', 'enabled hosts'], ['Back to home']]
 
     def nginx_menu(self, bot, update):
         reply_markup = telegram.ReplyKeyboardMarkup(self.custom_keyboard)
@@ -37,3 +37,7 @@ class BotManagerNginx:
             bot.send_message(chat_id=update.message.chat_id, text='Start the nginx first')
         else:
             bot.send_message(chat_id=update.message.chat_id, text=resp)
+
+    def enabled_hosts(self, bot, update):
+        resp = self.nx.enabled_hosts()
+        bot.send_message(chat_id=update.message.chat_id, text=resp)

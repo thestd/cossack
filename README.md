@@ -1,7 +1,7 @@
 TODO:
 - MANAGE NGINX
-  - Start / Stop / Restart
-  - Status / Enabled Hosts 
+  - ~~Start / Stop / Restart~~
+  - ~~Status~~ / Enabled Hosts 
 - MANAGE SUPERVISOR
 - FIREWALL (UFW)
   - allow / disable
@@ -9,3 +9,4 @@ TODO:
 - PROJECT DEPLOY
 - MIGRATION RUN
 - EXEC COMMAND
+- ADDED DATABASE FOR SAVE USER DATA
