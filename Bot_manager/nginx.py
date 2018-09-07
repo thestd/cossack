@@ -1,23 +1,10 @@
-import os_manage as _
 import telegram
+from OS_manager.nginx import Nginx
 
-class Home:
+
+class BotManagerNginx:
     def __init__(self):
-        self.os = _.OS()
-        self.custom_keyboard = [['NGINX'], ['About OS']]
-
-    def home_menu(self, bot, update):
-        reply_markup = telegram.ReplyKeyboardMarkup(self.custom_keyboard)
-        bot.send_message(chat_id=update.message.chat_id,
-                         text="Home menu",
-                         reply_markup=reply_markup)
-
-    def about_os(self, bot, update):
-        bot.send_message(chat_id=update.message.chat_id, text=self.os())
-
-class ManageNginx:
-    def __init__(self):
-        self.nx = _.Nginx()
+        self.nx = Nginx()
         self.custom_keyboard = [['start NGINX', 'restart NGINX'], ['stop NGINX', 'status NGINX'], ['Back to home']]
 
     def nginx_menu(self, bot, update):
@@ -50,7 +37,3 @@ class ManageNginx:
             bot.send_message(chat_id=update.message.chat_id, text='Start the nginx first')
         else:
             bot.send_message(chat_id=update.message.chat_id, text=resp)
-
-
-
-

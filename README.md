@@ -1,0 +1,11 @@
+TODO:
+- MANAGE NGINX
+  - Start / Stop / Restart
+  - Status / Enabled Hosts 
+- MANAGE SUPERVISOR
+- FIREWALL (UFW)
+  - allow / disable
+  - show status (open ports)
+- PROJECT DEPLOY
+- MIGRATION RUN
+- EXEC COMMAND

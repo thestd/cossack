@@ -1,12 +1,13 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Handler, filters, RegexHandler
-from bot_func import *
+from telegram.ext import Updater, CommandHandler, RegexHandler
+from Bot_manager.home import BotManagerHome
+from Bot_manager.nginx import BotManagerNginx
 import settings as set
 
 updater = Updater(token=set.TOKEN)
 dispatcher = updater.dispatcher
 
-nx = ManageNginx()
-home = Home()
+nx = BotManagerNginx()
+home = BotManagerHome()
 
 
 # ********* HOME DISPATCH *********
