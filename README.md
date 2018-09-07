@@ -1,7 +1,7 @@
 TODO:
-- MANAGE NGINX
+- ~~MANAGE NGINX~~
   - ~~Start / Stop / Restart~~
-  - ~~Status~~ / Enabled Hosts 
+  - ~~Status / Enabled Hosts~~ 
 - MANAGE SUPERVISOR
 - FIREWALL (UFW)
   - allow / disable
