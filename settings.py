@@ -1,3 +1,3 @@
-TOKEN = '567608145:AAFZHv5YuSolaFd5-9lP774Sfx235uWsYGw'
+TOKEN = '<your token>'
 
-SUDO_PASSWD = 'itemud41'
+SUDO_PASSWD = '<your password>'
