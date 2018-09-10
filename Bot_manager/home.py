@@ -5,7 +5,7 @@ import telegram
 class BotManagerHome:
     def __init__(self):
         self.os = OS()
-        self.custom_keyboard = [['NGINX'], ['About OS']]
+        self.custom_keyboard = [['NGINX', 'UFW'], ['About OS']]
 
     def home_menu(self, bot, update):
         reply_markup = telegram.ReplyKeyboardMarkup(self.custom_keyboard)

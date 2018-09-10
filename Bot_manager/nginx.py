@@ -10,8 +10,8 @@ class BotManagerNginx:
     def nginx_menu(self, bot, update):
         reply_markup = telegram.ReplyKeyboardMarkup(self.custom_keyboard)
         bot.send_message(chat_id=update.message.chat_id,
-                        text = "NGINX settings",
-                        reply_markup = reply_markup)
+                         text="NGINX settings",
+                         reply_markup=reply_markup)
 
     def restart_nginx(self, bot, update):
         if self.nx.restart() == 0:

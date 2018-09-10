@@ -1,18 +1,23 @@
 from .os import OS
+import settings as sett
 
 
 class Supervisor(OS):
-    def __init__(self):
-        pass
+    def start(self, app=''):
+        cmd = f"{self.sudo(sett.SUDO_PASSWD)}supervisorctl start {app}"
+        return self.runner(cmd)
 
-    def start(self):
-        pass
+    def restart(self, app=''):
+        cmd = f"{self.sudo(sett.SUDO_PASSWD)}supervisorctl restart {app}"
+        return self.runner(cmd)
 
-    def restart(self):
-        pass
+    def stop(self, app=''):
+        cmd = f"{self.sudo(sett.SUDO_PASSWD)}supervisorctl stop {app}"
+        return self.runner(cmd)
 
-    def stop(self):
-        pass
+    def pid(self, app=''):
+        cmd = f"{self.sudo(sett.SUDO_PASSWD)}supervisorctl pid {app}"
+        return self.runner(cmd)
 
     def __str__(self):
         pass
