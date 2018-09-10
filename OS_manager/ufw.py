@@ -13,7 +13,7 @@ class UFW(OS):
 
     def status(self, key='numbered'):
         cmd = f"{self.sudo(sett.SUDO_PASSWD)}ufw status {key}"
-        return self.runner(cmd)
+        return self.runner(cmd, return_result=True)
 
     def allow(self, port):
         cmd = f"{self.sudo(sett.SUDO_PASSWD)}ufw allow {port}"
