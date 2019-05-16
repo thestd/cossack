@@ -1,5 +1,6 @@
 import telegram
-from src.OS_manager import Nginx
+from .security import protect_it
+from src.OS_manager.nginx import Nginx
 
 
 class BotManagerNginx:
@@ -13,18 +14,21 @@ class BotManagerNginx:
                          text="NGINX settings",
                          reply_markup=reply_markup)
 
+    @protect_it
     def restart_nginx(self, bot, update):
         if self.nx.restart() == 0:
-            bot.send_message(chat_id=update.message.chat_id, text='NGINX restarted')
+            bot.send_message(chat_id=update.message.chat_id, text='NGINX [re]started')
         else:
             bot.send_message(chat_id=update.message.chat_id, text='Failure')
 
+    @protect_it
     def start_nginx(self, bot, update):
         if self.nx.start() == 0:
             bot.send_message(chat_id=update.message.chat_id, text='NGINX started')
         else:
             bot.send_message(chat_id=update.message.chat_id, text='Failure')
 
+    @protect_it
     def stop_nginx(self, bot, update):
         if self.nx.stop() == 0:
             bot.send_message(chat_id=update.message.chat_id, text='NGINX stopped')

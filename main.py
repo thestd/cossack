@@ -1,17 +1,19 @@
-from telegram.ext import Updater, CommandHandler, RegexHandler
+from telegram.ext import Updater, CommandHandler, RegexHandler, CallbackQueryHandler
 from src.Bot_manager.home import BotManagerHome
 from src.Bot_manager.nginx import BotManagerNginx
 from src.Bot_manager.ufw import BotManagerUfw
+from src.Bot_manager.security import Security
 from src.config_parser import Config
 
 config = Config()
 
-updater = Updater(token=config.bot_config.token)
+updater = Updater(token=config.bot.token)
 dispatcher = updater.dispatcher
 
 nx = BotManagerNginx()
 home = BotManagerHome()
 ufw = BotManagerUfw()
+security = Security()
 
 
 # ********* HOME DISPATCH *********
@@ -26,6 +28,12 @@ dispatcher.add_handler(ufw_hand)
 
 about_os_hand = RegexHandler('About OS', home.about_os)
 dispatcher.add_handler(about_os_hand)
+#
+security_hand = RegexHandler('security', security.send_menu)
+dispatcher.add_handler(security_hand)
+
+callback_handler = CallbackQueryHandler(security.check_code)
+dispatcher.add_handler(callback_handler)
 
 
 # ********* NGINX DISPATCH *********

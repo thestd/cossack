@@ -1,5 +1,6 @@
 import telegram
-from src.OS_manager import UFW
+from src.OS_manager.ufw import UFW
+from .security import protect_it
 
 
 class BotManagerUfw:
@@ -13,12 +14,14 @@ class BotManagerUfw:
                          text="UFW settings",
                          reply_markup=reply_markup)
 
+    @protect_it
     def enable(self, bot, update):
         if self.ufw.enable() == 0:
             bot.send_message(chat_id=update.message.chat_id, text='UFW enabled')
         else:
             bot.send_message(chat_id=update.message.chat_id, text='Failure')
 
+    @protect_it
     def disable(self, bot, update):
         if self.ufw.disable() == 0:
             bot.send_message(chat_id=update.message.chat_id, text='UFW disabled')
