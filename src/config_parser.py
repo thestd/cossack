@@ -1,5 +1,5 @@
 import configparser
-
+import settings
 
 class BotConfig:
     def __init__(self, token, pin_code):
@@ -53,7 +53,8 @@ class Config:
 
     def update_config(self, is_auth, last_auth):
         self._config['Auth'] = {'is_auth': is_auth, 'last_auth': last_auth,
-                                'session_duration': self.auth.session_duration}
+                                'session_duration': settings.SESSION_DURATION}
+                                # 'session_duration': self.auth.session_duration}
 
         with open(self._config_name, "w") as configure:
             self._config.write(configure)

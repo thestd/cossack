@@ -1,4 +1,4 @@
-from src.OS_manager.os import OS
+from src.os_manager.os_manager import OS
 import telegram
 
 

@@ -27,8 +27,8 @@ class OS:
             return cmd
         return self.runner(cmd, return_result=True)
 
-    def ls(self, run=True):
-        cmd = "ls"
+    def ls(self, path, run=True):
+        cmd = "ls " + path
         if not run:
             return cmd
         return self.runner(cmd, return_result=True)

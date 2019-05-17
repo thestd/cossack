@@ -1,6 +1,7 @@
 import telegram
+import settings
 from src.config_parser import Config
-from src.nitifications import *
+from settings.texts import *
 
 START_STATE = 0
 UPDATE_STATE = 1
@@ -137,7 +138,7 @@ def protect_it(func):
         security = Security()
 
         # check the duration of the session.
-        if (int(datetime.now().timestamp()) - security.config.auth.last_auth) >= security.config.auth.session_duration:
+        if (int(datetime.now().timestamp()) - security.config.auth.last_auth) >= settings.SESSION_DURATION:
             security.config.update_config(is_auth=0, last_auth=int(datetime.now().timestamp()))
 
         # decorating

@@ -1,5 +1,5 @@
 import telegram
-from src.OS_manager.ufw import UFW
+from src.os_manager.ufw import UFW
 from .security import protect_it
 
 

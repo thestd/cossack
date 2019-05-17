@@ -1,4 +1,4 @@
-from .os import OS
+from .os_manager import OS
 from src.config_parser import Config
 
 config = Config()
@@ -23,9 +23,13 @@ class Nginx(OS):
 
     def enabled_hosts(self):
         cmd = f'grep "server_name " /etc/nginx/sites-enabled/*;'
-        return self.runner(cmd, return_result=True)\
-            .replace('server_name ', '')\
-            .replace('#либо ip, либо доменное имя', '')
+        return self.runner(cmd, return_result=True) \
+            .replace('#либо ip, либо доменное имя', '') \
+            .replace('server_name ', '') \
+            .replace(';', '')
+
+    def get_available_host(self):
+        return self.ls(path="/etc/nginx/sites-available/")
 
     def __str__(self):
         return self.status()

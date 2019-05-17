@@ -1,4 +1,4 @@
-from .os import OS
+from .os_manager import OS
 from src.config_parser import Config
 
 config = Config()
