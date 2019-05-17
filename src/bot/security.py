@@ -102,23 +102,23 @@ class Security:
     def get_keypad():
         keypad = [
             [
-                telegram.InlineKeyboardButton(1, callback_data=f'sec_{1}'),
-                telegram.InlineKeyboardButton(2, callback_data=f'sec_{2}'),
-                telegram.InlineKeyboardButton(3, callback_data=f'sec_{3}'),
+                telegram.InlineKeyboardButton(1, callback_data=f'sec_1'),
+                telegram.InlineKeyboardButton(2, callback_data=f'sec_2'),
+                telegram.InlineKeyboardButton(3, callback_data=f'sec_3'),
             ],
             [
-                telegram.InlineKeyboardButton(4, callback_data=f'sec_{4}'),
-                telegram.InlineKeyboardButton(5, callback_data=f'sec_{5}'),
-                telegram.InlineKeyboardButton(6, callback_data=f'sec_{6}'),
+                telegram.InlineKeyboardButton(4, callback_data=f'sec_4'),
+                telegram.InlineKeyboardButton(5, callback_data=f'sec_5'),
+                telegram.InlineKeyboardButton(6, callback_data=f'sec_6'),
             ],
             [
-                telegram.InlineKeyboardButton(7, callback_data=f'sec_{7}'),
-                telegram.InlineKeyboardButton(8, callback_data=f'sec_{8}'),
-                telegram.InlineKeyboardButton(9, callback_data=f'sec_{9}'),
+                telegram.InlineKeyboardButton(7, callback_data=f'sec_7'),
+                telegram.InlineKeyboardButton(8, callback_data=f'sec_8'),
+                telegram.InlineKeyboardButton(9, callback_data=f'sec_9'),
             ],
             [
                 telegram.InlineKeyboardButton("X", callback_data=f'sec_x'),
-                telegram.InlineKeyboardButton(0, callback_data=f'sec_{0}'),
+                telegram.InlineKeyboardButton(0, callback_data=f'sec_0'),
                 telegram.InlineKeyboardButton("<-", callback_data=f'sec_<'),
             ],
         ]
