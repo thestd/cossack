@@ -3,6 +3,7 @@ from .security import protect_it
 from src.os_manager.nginx import Nginx
 from settings import commands, texts
 
+
 class BotManagerNginx:
     def __init__(self):
         self.nx = Nginx()
