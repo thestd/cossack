@@ -3,6 +3,7 @@ from src.bot.home import BotManagerHome
 from src.bot.nginx import BotManagerNginx
 from src.bot.ufw import BotManagerUfw
 from src.bot.security import Security
+from src.bot.shell import BotManagerShell
 from src.config_parser import Config
 from settings import settings, commands
 import logging
@@ -16,6 +17,7 @@ nx = BotManagerNginx()
 home = BotManagerHome()
 ufw = BotManagerUfw()
 security = Security()
+shell = BotManagerShell()
 
 
 # ********* HOME DISPATCH *********
@@ -75,8 +77,15 @@ status_ufw_hand = RegexHandler('status UFW', ufw.status)
 dispatcher.add_handler(status_ufw_hand)
 
 
-# CALLBACK
+# ********* UFW DISPATCH *********
+shell_hand = RegexHandler('Shell', shell.set_state_shell)
+dispatcher.add_handler(shell_hand)
 
+shell_runner_hand = RegexHandler('[\$] (.+)', shell.runner)
+dispatcher.add_handler(shell_runner_hand)
+
+
+# CALLBACK
 security_keypad_hand = CallbackQueryHandler(security.check_code, pattern="(sec_.)")
 dispatcher.add_handler(security_keypad_hand)
 
@@ -88,7 +97,6 @@ dispatcher.add_handler(disabling_host_keypad_hand)
 
 home_hand = RegexHandler(commands.BACK_TO_HOME, home.home_menu)
 dispatcher.add_handler(home_hand)
-
 
 
 # ========== LOGGING ==========

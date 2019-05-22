@@ -2,3 +2,5 @@
 # ********* NGINX STATES *********
 MANAGE_NGINX_STATE = False
 MANAGE_NGINX_HOST_STATE = False
+
+SHELL_STATE = False

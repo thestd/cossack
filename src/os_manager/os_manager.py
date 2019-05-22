@@ -3,6 +3,7 @@ from subprocess import *
 
 class OS:
     def runner(self, cmd, return_result=False):
+        res = ''
         try:
             if not return_result:
                 Popen(cmd, shell=True)
