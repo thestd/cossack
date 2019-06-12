@@ -2,7 +2,7 @@ from subprocess import *
 
 
 class OS:
-    def runner(self, cmd, return_result=False):
+    def runner(self, cmd: str, return_result: bool =False) -> 'exception text or 0':
         try:
             if not return_result:
                 Popen(cmd, shell=True)
@@ -15,13 +15,13 @@ class OS:
                 return res.decode("utf-8")
             return 0
 
-    def sudo(self, password, run=False):
+    def sudo(self, password: str, run: bool =False) -> str:
         cmd = f"echo {password} | sudo -S "
         if not run:
             return cmd
         return self.runner(cmd, return_result=True)
 
-    def service(self, tool, action, run=False):
+    def service(self, tool: str, action: str, run: bool =False) -> str:
         cmd = f"service {tool} {action}"
         if not run:
             return cmd
